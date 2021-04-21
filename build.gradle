@@ -1,0 +1,35 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "org.mock-server:mockserver-netty:5.11.2"
+    testImplementation "io.kotlintest:kotlintest-assertions:3.4.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.7.1"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:5.7.1"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.7.1"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '13'
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = '13'
+}
+
+application {
+    mainClassName = 'MainKt'
+}
